@@ -1,13 +1,13 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace LucasGiovanny\FilamentInlineTranslateField;
 
 use Filament\PluginServiceProvider;
 use Spatie\LaravelPackageTools\Package;
 
-class SkeletonServiceProvider extends PluginServiceProvider
+class FilamentInlineTranslateFieldServiceProvider extends PluginServiceProvider
 {
-    public static string $name = 'skeleton';
+    public static string $name = 'filament-inline-translate-field';
 
     protected array $resources = [
         // CustomResource::class,
@@ -22,15 +22,15 @@ class SkeletonServiceProvider extends PluginServiceProvider
     ];
 
     protected array $styles = [
-        'plugin-skeleton' => __DIR__.'/../resources/dist/skeleton.css',
+        'plugin-filament-inline-translate-field' => __DIR__.'/../resources/dist/filament-inline-translate-field.css',
     ];
 
     protected array $scripts = [
-        'plugin-skeleton' => __DIR__.'/../resources/dist/skeleton.js',
+        'plugin-filament-inline-translate-field' => __DIR__.'/../resources/dist/filament-inline-translate-field.js',
     ];
 
     // protected array $beforeCoreScripts = [
-    //     'plugin-skeleton' => __DIR__ . '/../resources/dist/skeleton.js',
+    //     'plugin-filament-inline-translate-field' => __DIR__ . '/../resources/dist/filament-inline-translate-field.js',
     // ];
 
     public function configurePackage(Package $package): void

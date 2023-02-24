@@ -1,5 +1,5 @@
 <?php
 
-use VendorName\Skeleton\Tests\TestCase;
+use LucasGiovanny\FilamentInlineTranslateField\Tests\TestCase;
 
 uses(TestCase::class)->in(__DIR__);
