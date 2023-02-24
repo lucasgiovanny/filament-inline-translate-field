@@ -15,7 +15,7 @@ class InlineTranslateField extends KeyValue
             ->disableAddingRows()
             ->disableDeletingRows()
             ->disableEditingKeys()
-            ->default(array_fill_keys(config('filament-inline-translate-field::filament-inline-translate-field.available_locales'), ''))
+            ->default(array_fill_keys(config('filament-inline-translate-field.available_locales'), ''))
             ->valueLabel(__('filament-inline-translate-field::filament-inline-translate-field.value_label'))
             ->rules([new LocaleRule]);
     }
