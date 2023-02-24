@@ -1,59 +1,67 @@
-# Create a beautiful key-value field to allow users to enter all possible language values for a fiel
+# Filament Inline Translate Field
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/lucasgiovanny/filament-inline-translate-field.svg?style=flat-square)](https://packagist.org/packages/lucasgiovanny/filament-inline-translate-field)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/lucasgiovanny/filament-inline-translate-field/run-tests?label=tests)](https://github.com/lucasgiovanny/filament-inline-translate-field/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/lucasgiovanny/filament-inline-translate-field/Check%20&%20fix%20styling?label=code%20style)](https://github.com/lucasgiovanny/filament-inline-translate-field/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/lucasgiovanny/filament-inline-translate-field.svg?style=flat-square)](https://packagist.org/packages/lucasgiovanny/filament-inline-translate-field)
 
+Create a beautiful key-value field to allow users to enter all possible language values for a field on the same page
 
-
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+![image](example.jpg)
 
 ## Installation
 
-You can install the package via composer:
+1. You can install the package via composer:
 
 ```bash
 composer require lucasgiovanny/filament-inline-translate-field
 ```
 
-You can publish and run the migrations with:
+2. Configure you model, as defined on [spatie/laravel-translatable](https://spatie.be/docs/laravel-translatable/v6/installation-setup#content-making-a-model-translatable) documentation:
 
-```bash
-php artisan vendor:publish --tag="filament-inline-translate-field-migrations"
-php artisan migrate
+- Add the `Spatie\Translatable\HasTranslations` trait to the model that is going to use this field.
+- Next, you should create a **public property** `$translatable` which holds an array with all the names of attributes you wish to make translatable.
+- Finally, you should _make sure that all translatable attributes are set to the json-datatype in your database_. If your database doesn't support json-columns, use text.
+
+```php
+use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
+
+class Activity extends Model
+{
+    use HasTranslations;
+
+    public $translatable = ['name'];
+}
 ```
 
-You can publish the config file with:
+3. Publish the configuration file to set the available languages:
 
 ```bash
 php artisan vendor:publish --tag="filament-inline-translate-field-config"
 ```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="filament-inline-translate-field-views"
-```
-
-This is the contents of the published config file:
-
 ```php
 return [
+    'available_locales' => [
+        'en' => 'English',
+        'fr' => 'French',
+        'es' => 'Spanish',
+    ],
 ];
 ```
 
+Optionally, you can publish the translation files:
+
+```bash
+php artisan vendor:publish --tag="filament-inline-translate-field-translations
+```
 ## Usage
 
 ```php
-$filament-inline-translate-field = new LucasGiovanny\FilamentInlineTranslateField();
-echo $filament-inline-translate-field->echoPhrase('Hello, LucasGiovanny!');
-```
+use LucasGiovanny\FilamentMultiselectTwoSides\Forms\Components\Fields\InlineTranslateField;
 
-## Testing
-
-```bash
-composer test
+return $form
+    ->schema([
+        InlineTranslateField::make('name'),
+    ]);
 ```
 
 ## Changelog

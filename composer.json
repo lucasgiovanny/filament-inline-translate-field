@@ -1,6 +1,6 @@
 {
     "name": "lucasgiovanny/filament-inline-translate-field",
-    "description": "Create a beautiful key-value field to allow users to enter all possible language values for a fiel",
+    "description": "Create a beautiful key-value field to allow users to enter all possible language values for a field on the same page",
     "keywords": [
         "lucasgiovanny",
         "laravel",
