@@ -56,7 +56,7 @@ php artisan vendor:publish --tag="filament-inline-translate-field-translations
 ## Usage
 
 ```php
-use LucasGiovanny\FilamentMultiselectTwoSides\Forms\Components\Fields\InlineTranslateField;
+use LucasGiovanny\FilamentInlineTranslateField\Forms\Components\Fields\InlineTranslateField;
 
 return $form
     ->schema([
